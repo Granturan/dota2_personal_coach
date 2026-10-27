@@ -34,6 +34,21 @@ python -m ingest.daily_ranked           # yesterday's ranked matches -> S3 (budg
 python -m pytest -q                     # tests
 ```
 
+## Airflow (local)
+
+Docker Desktop required. Airflow 3.3.2 with LocalExecutor; the image adds the `ingest` package.
+
+```powershell
+cd airflow
+copy .env.example .env                 # then fill in secrets (see comments in the file)
+docker compose up -d --build           # UI: http://localhost:8080 (admin / password from .env)
+docker compose down                    # stop; metadata DB survives in a Docker volume
+```
+
+DAG `daily_ranked_ingest` runs daily at 03:00 UTC and ingests the previous UTC day.
+Locally it uses your `aws login` session (the `~/.aws` folder is mounted), so the session
+must be valid when the run starts.
+
 ## S3 layout (`s3://dota-coach-lake-299324001563`)
 
 ```

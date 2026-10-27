@@ -16,3 +16,9 @@ venv/
 .idea/
 .DS_Store
 Thumbs.db
+
+# Airflow (local runtime state and secrets)
+airflow/.env
+airflow/logs/
+airflow/config/
+airflow/plugins/

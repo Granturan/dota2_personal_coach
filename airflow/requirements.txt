@@ -1,0 +1,4 @@
+# Runtime dependencies of the ingest package inside the Airflow image (no UI/analysis libraries).
+requests==2.34.2
+boto3==1.43.118
+botocore[crt]==1.43.118
