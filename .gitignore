@@ -1,0 +1,18 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+
+# Secrets and local config
+.env
+.streamlit/secrets.toml
+.aws/
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
